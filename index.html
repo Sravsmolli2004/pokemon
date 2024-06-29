@@ -3,74 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>pokemon</title>
 </head>
 <style>
-    marquee{
-        background-color: lightskyblue;
+    body{
+        margin: 0;
+    background: url(https://i0.wp.com/www.nashvillechatterclass.com/wp-content/uploads/2022/04/Pokemon-anime-series.png?fit=578%2C327&ssl=1);
+ background-size: cover;
+ background-repeat: no-repeat;
     }
-</style>
-<body>
-    
-    <h1><u><center>PRABHAS</center></u></h1>
-   <marquee> <H1> Brief Biography of PRABHAS</H1></marquee> 
-<p><I>
-    <img src="https://pbs.twimg.com/media/EHgMu9YUEAEbRwu.jpg:large" ALIGN="RIGHT" WIDTH="500PX" height="800PX">
+    input{
+    margin-top: 50px;
+      margin-left: 70px;  
+     height: 50px;
+     width: 250px;
+     border-radius: 25px;
+     border: none;
+     font-size: 20px;
+    padding-left: 30px;
+    font-weight: 400;
+    }
    
+    img{
+        height: 250px;     
+    }
+    
+    button{
+        color: white;
+        background-color: rgb(87, 140, 255);
+        height: 54px;
+     width:150px;
+     border-radius: 20px;
+     margin-top: 50px;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+       font-size: medium; 
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    }
+    .data{
+        margin-top: 13vh;
+       margin-left: 450px;
+       margin-right: 350px;
+      height: 600px;
+        text-align: center;
+        width: 600px;
+        background:transparent;
+        border: 3px solid rgba(225,225,225,.2);
+        backdrop-filter: blur(20px);
+        border-radius: 10px;
+       }
+    .text{
+    display: flex;
+    flex-wrap: nowrap;
+   
+   }
+   h1{
+  padding-top: 20px;
+  
+    color: purple;
+   
+    
+   }
+   p{
+    font-size: 30px;
+    font-weight: 600;
+    color: navy;
+   }
+ 
+</style>
+<body><div class="data">
+    <h1 id="poke">POKEMON</h1>
+    <div class="text">
+    <input id="pokemon" type="text" placeholder="pokemon name">
+    <button onclick="fetchdata()">Search</button></div>
+<h2 id="pokeid"></h2>
+    <p id="pokenames"></p>
+    <img src="" id="pokemonsprites">
+    </div>
+<script>
+    async function fetchdata(){
+        try{
+            const pokemon=document.getElementById("pokemon").value 
+            const response=await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+            if(!response.ok){
+                throw new Error("could not fetch data")
+            }
+            const data=await response.json();
+            const pokemonsprites=data.sprites.front_default;
+            const pokeid=data.id ;
+            const pokename = data.name;
+            const image=document.getElementById("pokemonsprites")
+            const idinfo=document.getElementById("pokeid")
+           const name=document.getElementById("pokenames")
+            image.src=pokemonsprites
+            idinfo.textContent=pokeid
+            name.textContent=pokename
+         const h1=document.getElementById("poke")
 
- <H2><strong> Early Life and Background</strong></H2>
-<B>**Full Name:** </B>  Venkata Suryanarayana Prabhas Raju<BR>
-    <B>**Date of Birth:**</B> October 23, 1979<BR>
-    <B>**Place of Birth:**</B>  Chennai, Tamil Nadu, India<BR>
-   <B>**Family:**</B><BR> 
-      <U>Father:</U> Uppalapati Surya Narayana Raju (Film Producer)<BR>
-      <U>Uncle:</U>  Krishnam Raju (Actor)<BR>
-      <U>Siblings:</U>  Brother (Pramod Uppalapati) and Sister (Pragathi)<BR>
-<H2> <STRONG>Education</STRONG> </H2>
-    <B>**Schooling:**</B> DNR School, Bhimavaram<BR>
-    <B>**Intermediate Education:** </B>Sri Chaitanya College, Hyderabad<BR>
-    <B> **Degree:**</B> B.Tech from Sri Chaitanya College of Engineering, Hyderabad<BR>
-    
-   <H2><STRONG>Film Career</STRONG></H2> 
-    <B>**Debut:**</B> "Eeswar" (2002)<BR>
-    <B>**Notable Early Films:**</B> <BR>
-      ❤️"Raghavendra" (2003)<BR>
-      ❤️"Varsham" (2004)<BR>
-      ❤️"Chatrapathi" (2005)<BR>
-      
-  <H2><STRONG> Breakthrough with Baahubali</STRONG></H2> 
-    <B>**Role:**</B>  Amarendra Baahubali / Mahendra Baahubali<BR>
-    <B>**Films:**</B> 
-      🖤"Baahubali: The Beginning" (2015)<BR>
-      🖤"Baahubali: The Conclusion" (2017)<BR>
-    <B></B> **Impact:** Established as a pan-Indian superstar, critical and commercial success<BR>
-    
-    <H2><STRONG>Post-Baahubali Career</STRONG></H2>
-   <B>**Film:**</B>  "Saaho" (2019)<BR>
-      <B>**Genre:**</B> Action thriller<BR>
-    <B>**Reception:** </B>Mixed reviews, notable for high production values<BR>
-    
-    <H2><STRONG> Personal Life and Interests</STRONG></H2>
-    <B> **Personality:**</B> Reclusive, private, humble demeanor<BR>
-    <B>**Hobbies:** </B>Reading, traveling, fitness enthusiast<BR>
-    
-   <H2> <STRONG>Philanthropy</STRONG></H2>
-    <B>**Activities:**</B>  Involved in various charitable organizations and social causes<BR>
-    
-    <H2><STRONG>Awards and Recognition</STRONG></H2>
-    <B>**Notable Awards:**</B> Multiple accolades for "Baahubali" series<BR>
-    
-    <H2><STRONG>Future Projects</STRONG></H2>
-    <B>**Upcoming Films:**</B><BR>
-      🔥 "Radhe Shyam" (2022)<BR>
-      🔥 "Adipurush"<BR>
-      🔥 "Salaar"<BR>
-    
-    <H2><STRONG> Summary</STRONG></H2>
-    <B>**Journey:**</B> From regional actor to national and international icon<BR>
-    <B>**Contributions:** </B>Significant impact on Indian cinema, inspiring millions worldwide
-</I></p>
-
-</pre>
+        }
+        catch(error){
+            console.log(error)
+        }
+    }
+</script>
 </body>
 </html>
